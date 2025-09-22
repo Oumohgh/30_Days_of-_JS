@@ -1,0 +1,28 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    const ob ={
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+    }
+let result = 0;
+for(let z=0 ;z< s.length;z++){
+    let current = ob[s[z]];
+    let next = ob[s[z+1]]
+    if (current < next){
+        result += next - current;
+        z++;
+    }else{
+        result += current;
+}   
+}
+return result;
+
+};
